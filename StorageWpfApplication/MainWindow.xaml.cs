@@ -29,7 +29,7 @@ using System.Windows.Shapes;
 
 
 //storage account  abestorage2
-//access key  IwD5+vgsdi6x9NJaKcMXlU3RrlNnhS5sMqkKPIm3qtofvJrR9eTfyPY7MRGynvYPoZLC6vq4P+5MUrp5pLWkyQ==
+//access key  
 
 //download
 //https://abestorage2.blob.core.windows.net/movies/20140510_154631.mp4
