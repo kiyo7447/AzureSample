@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageWpfApplication", "St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageQueueWpfApplication", "StorageQueueWpfApplication\StorageQueueWpfApplication.csproj", "{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageTableWpfApplication", "StorageTableWpfApplication\StorageTableWpfApplication.csproj", "{E956C41D-66AA-4685-ACAE-1465EA7E297B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E956C41D-66AA-4685-ACAE-1465EA7E297B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E956C41D-66AA-4685-ACAE-1465EA7E297B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E956C41D-66AA-4685-ACAE-1465EA7E297B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E956C41D-66AA-4685-ACAE-1465EA7E297B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
