@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisCacheWpfApplication", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureDataWarehouse", "AzureDataWarehouse", "{53045660-C577-4134-9289-300EA0074869}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageWpfApplication", "StorageWpfApplication\StorageWpfApplication.csproj", "{4F2D40CA-1DEC-4FB9-9D1C-1F391F883BE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageBlobWpfApplication", "StorageWpfApplication\StorageBlobWpfApplication.csproj", "{4F2D40CA-1DEC-4FB9-9D1C-1F391F883BE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageQueueWpfApplication", "StorageQueueWpfApplication\StorageQueueWpfApplication.csproj", "{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}"
 EndProject
