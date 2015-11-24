@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageFileWpfApplication",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusQueueWpfApplication", "ServiceBusQueueWpfApplication\ServiceBusQueueWpfApplication.csproj", "{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusTopicWpfApplication", "ServiceBusTopicWpfApplication\ServiceBusTopicWpfApplication.csproj", "{BB7FC531-D50B-43DD-8EB2-C0BD61E7E3A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB7FC531-D50B-43DD-8EB2-C0BD61E7E3A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB7FC531-D50B-43DD-8EB2-C0BD61E7E3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB7FC531-D50B-43DD-8EB2-C0BD61E7E3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB7FC531-D50B-43DD-8EB2-C0BD61E7E3A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
