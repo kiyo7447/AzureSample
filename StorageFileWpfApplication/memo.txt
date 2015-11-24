@@ -7,7 +7,7 @@ https://azure.microsoft.com/ja-jp/documentation/articles/storage-dotnet-how-to-u
 
 
 # create a context for account and key
-$ctx=New-AzureStorageContext abestorage2 IwD5+vgsdi・・・
+$ctx=New-AzureStorageContext <user-name> IwD5+vgsdi・・・
 
 # create a new share
 $s = New-AzureStorageShare logs -Context $ctx
@@ -29,30 +29,30 @@ Get-AzureStorageFile -Share $s -Path CustomLogs
 
 
 
-cmdkey /add:abestorage2.file.core.windows.net /user:abestorage2 /pass:IwD5+vgsdi・・・
+cmdkey /add:<user-name>.file.core.windows.net /user:<user-name> /pass:IwD5+vgsdi・・・
 
 
-net use z: \abestorage2.file.core.windows.net\log
+net use z: \<user-name>.file.core.windows.net\log
 システム エラー 67 が発生しました。
 
 ネットワーク名が見つかりません。
 
 
-net use z: \\abestorage2.file.core.windows.net\log
+net use z: \\<user-name>.file.core.windows.net\log
 システム エラー 53 が発生しました。
 
 ネットワーク パスが見つかりません。
 
 
-net use z: \\abestorage2.file.core.windows.net\logs
+net use z: \\<user-name>.file.core.windows.net\logs
 システム エラー 53 が発生しました。
 
 ネットワーク パスが見つかりません。
 
 
-net use z: \\abestorage2.file.core.windows.net\logs /u:abestorage2 IwD5+vgsdi・・・
+net use z: \\<user-name>.file.core.windows.net\logs /u:<user-name> IwD5+vgsdi・・・
 
-net use z: \\abestorage2.file.core.windows.net\files /u:abestorage2 IwD5+vgsdi・・・
+net use z: \\<user-name>.file.core.windows.net\files /u:<user-name> IwD5+vgsdi・・・
 
 
 
