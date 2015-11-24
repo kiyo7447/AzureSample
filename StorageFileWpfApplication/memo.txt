@@ -7,7 +7,7 @@ https://azure.microsoft.com/ja-jp/documentation/articles/storage-dotnet-how-to-u
 
 
 # create a context for account and key
-$ctx=New-AzureStorageContext <user-name> IwD5+vgsdi・・・
+$ctx=New-AzureStorageContext <user-name> <access-key>
 
 # create a new share
 $s = New-AzureStorageShare logs -Context $ctx
@@ -29,7 +29,7 @@ Get-AzureStorageFile -Share $s -Path CustomLogs
 
 
 
-cmdkey /add:<user-name>.file.core.windows.net /user:<user-name> /pass:IwD5+vgsdi・・・
+cmdkey /add:<user-name>.file.core.windows.net /user:<user-name> /pass:<access-key>
 
 
 net use z: \<user-name>.file.core.windows.net\log
@@ -50,10 +50,12 @@ net use z: \\<user-name>.file.core.windows.net\logs
 ネットワーク パスが見つかりません。
 
 
-net use z: \\<user-name>.file.core.windows.net\logs /u:<user-name> IwD5+vgsdi・・・
+net use z: \\<user-name>.file.core.windows.net\logs /u:<user-name> <access-key>
 
-net use z: \\<user-name>.file.core.windows.net\files /u:<user-name> IwD5+vgsdi・・・
+net use z: \\<user-name>.file.core.windows.net\files /u:<user-name> <access-key>
 
+あれれ？
+SMBのせい？
 
 
 
