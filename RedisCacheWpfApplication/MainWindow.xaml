@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-		<Button x:Name="button" Content="Button" HorizontalAlignment="Left" Height="54" Margin="54,30,0,0" VerticalAlignment="Top" Width="342" Click="button_Click"/>
+		<Button x:Name="button" Content="キャッシュにキーをセットして取得するサンプル" HorizontalAlignment="Left" Height="54" Margin="54,30,0,0" VerticalAlignment="Top" Width="342" Click="button_Click"/>
 		<TextBox x:Name="textBox" HorizontalAlignment="Left" Height="42" Margin="54,114,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="342"/>
-		<Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Height="48" Margin="54,189,0,0" VerticalAlignment="Top" Width="342" Click="button1_Click"/>
+		<Button x:Name="button1" Content="キーの取得のみのサンプル" HorizontalAlignment="Left" Height="48" Margin="54,189,0,0" VerticalAlignment="Top" Width="342" Click="button1_Click"/>
 
 	</Grid>
 </Window>

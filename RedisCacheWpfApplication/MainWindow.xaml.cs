@@ -82,7 +82,9 @@ namespace RedisCacheWpfApplication
 
 		private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 		{
-			return ConnectionMultiplexer.Connect("abecloud.redis.cache.windows.net,abortConnect=false,ssl=true,password=ここはひ、み、つ");
+			var connstr = new Properties.Settings().connectionString;
+
+			return ConnectionMultiplexer.Connect(connstr);
 		});
 
 		public static ConnectionMultiplexer Connection
