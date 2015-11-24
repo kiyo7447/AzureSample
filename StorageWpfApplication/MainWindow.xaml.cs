@@ -49,6 +49,7 @@ namespace StorageWpfApplication
 		private void button_Click(object sender, RoutedEventArgs e)
 		{
 			//このコードは、動作しませんでした。
+			//翌日見たら、動作していました。タイムラグがあるようです。
 
 			var constr = new Properties.Settings().StorageConnectionString;
 			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
