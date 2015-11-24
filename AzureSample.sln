@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageBlobWpfApplication",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageFileWpfApplication", "StorageFileWpfApplication\StorageFileWpfApplication.csproj", "{7215974E-6704-4F2B-B6D1-C8E01E547D32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusWpfApplication", "ServiceBusWpfApplication\ServiceBusWpfApplication.csproj", "{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusQueueWpfApplication", "ServiceBusQueueWpfApplication\ServiceBusQueueWpfApplication.csproj", "{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

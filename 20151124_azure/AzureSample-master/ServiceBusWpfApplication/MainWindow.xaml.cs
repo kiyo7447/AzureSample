@@ -1,5 +1,4 @@
-﻿using Microsoft.ServiceBus;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,19 +23,6 @@ namespace ServiceBusWpfApplication
 		public MainWindow()
 		{
 			InitializeComponent();
-		}
-
-		private void button_Click(object sender, RoutedEventArgs e)
-		{
-			string connectionString = new Properties.Settings().ConnectionString;
-
-			var namespaceManager =
-				NamespaceManager.CreateFromConnectionString(connectionString);
-
-			if (!namespaceManager.QueueExists("TestQueue"))
-			{
-				namespaceManager.CreateQueue("TestQueue");
-			}
 		}
 	}
 }

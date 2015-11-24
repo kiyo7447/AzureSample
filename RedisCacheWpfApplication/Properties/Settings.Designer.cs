@@ -26,7 +26,8 @@ namespace RedisCacheWpfApplication.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("っｓ")]
+        [global::System.Configuration.DefaultSettingValueAttribute("abecloud.redis.cache.windows.net,abortConnect=false,ssl=true,password=B8MFoVSGDH2" +
+            "/YHkwV486ddCqwYK9+XQt1s40s8DHeUQ=")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));
