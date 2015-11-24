@@ -26,6 +26,7 @@ namespace RedisCacheWpfApplication.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("っｓ")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));
