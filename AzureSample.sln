@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationAzureServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationAzureServiceBusSendQueue", "ConsoleApplicationAzureServiceBusSendQueue\ConsoleApplicationAzureServiceBusSendQueue.csproj", "{8FDF46DC-8C97-496C-8698-883762D7507C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationCreateTokenCSRF", "ConsoleApplicationCreateTokenCSRF\ConsoleApplicationCreateTokenCSRF.csproj", "{30D8F987-5633-4F5E-8C9A-84D0F3BF3FEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{8FDF46DC-8C97-496C-8698-883762D7507C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FDF46DC-8C97-496C-8698-883762D7507C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FDF46DC-8C97-496C-8698-883762D7507C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30D8F987-5633-4F5E-8C9A-84D0F3BF3FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30D8F987-5633-4F5E-8C9A-84D0F3BF3FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30D8F987-5633-4F5E-8C9A-84D0F3BF3FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30D8F987-5633-4F5E-8C9A-84D0F3BF3FEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
