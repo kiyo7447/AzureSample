@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisCacheWpfApplication", "RedisCacheWpfApplication\RedisCacheWpfApplication.csproj", "{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}"
 EndProject
@@ -18,6 +18,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusQueueWpfApplication", "ServiceBusQueueWpfApplication\ServiceBusQueueWpfApplication.csproj", "{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusTopicWpfApplication", "ServiceBusTopicWpfApplication\ServiceBusTopicWpfApplication.csproj", "{BB7FC531-D50B-43DD-8EB2-C0BD61E7E3A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusBrokeredMessageWpfApplication", "ServiceBusBrokeredMessageWpfApplication\ServiceBusBrokeredMessageWpfApplication.csproj", "{D34D7342-D285-410C-866D-F1B99503C834}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationAzureServiceBusReciveEventHub", "ConsoleApplicationAzureServiceBusReciveEventHub\ConsoleApplicationAzureServiceBusReciveEventHub.csproj", "{44A43E0F-1A9F-47F8-8FA1-CDC7BCA8DE6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationAzureServiceBusReciveQueue", "ConsoleApplicationAzureServiceBusReciveQueue\ConsoleApplicationAzureServiceBusReciveQueue.csproj", "{C375EFB4-BD2F-4A65-87AA-9C7AEDDE160B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationAzureServiceBusSendEventHub", "ConsoleApplicationAzureServiceBusSendEventHub\ConsoleApplicationAzureServiceBusSendEventHub.csproj", "{3044CC21-4E80-4385-811D-20B8EB0F89B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationAzureServiceBusSendQueue", "ConsoleApplicationAzureServiceBusSendQueue\ConsoleApplicationAzureServiceBusSendQueue.csproj", "{8FDF46DC-8C97-496C-8698-883762D7507C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +63,26 @@ Global
 		{BB7FC531-D50B-43DD-8EB2-C0BD61E7E3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB7FC531-D50B-43DD-8EB2-C0BD61E7E3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB7FC531-D50B-43DD-8EB2-C0BD61E7E3A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D34D7342-D285-410C-866D-F1B99503C834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D34D7342-D285-410C-866D-F1B99503C834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D34D7342-D285-410C-866D-F1B99503C834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D34D7342-D285-410C-866D-F1B99503C834}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44A43E0F-1A9F-47F8-8FA1-CDC7BCA8DE6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44A43E0F-1A9F-47F8-8FA1-CDC7BCA8DE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44A43E0F-1A9F-47F8-8FA1-CDC7BCA8DE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44A43E0F-1A9F-47F8-8FA1-CDC7BCA8DE6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C375EFB4-BD2F-4A65-87AA-9C7AEDDE160B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C375EFB4-BD2F-4A65-87AA-9C7AEDDE160B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C375EFB4-BD2F-4A65-87AA-9C7AEDDE160B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C375EFB4-BD2F-4A65-87AA-9C7AEDDE160B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3044CC21-4E80-4385-811D-20B8EB0F89B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3044CC21-4E80-4385-811D-20B8EB0F89B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3044CC21-4E80-4385-811D-20B8EB0F89B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3044CC21-4E80-4385-811D-20B8EB0F89B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDF46DC-8C97-496C-8698-883762D7507C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDF46DC-8C97-496C-8698-883762D7507C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDF46DC-8C97-496C-8698-883762D7507C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDF46DC-8C97-496C-8698-883762D7507C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

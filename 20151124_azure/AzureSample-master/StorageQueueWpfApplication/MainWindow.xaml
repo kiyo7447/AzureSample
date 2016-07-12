@@ -1,0 +1,17 @@
+﻿<Window x:Class="StorageQueueWpfApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StorageQueueWpfApplication"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+		<Button x:Name="button" Content="Queue作成" HorizontalAlignment="Left" Height="31" Margin="10,46,0,0" VerticalAlignment="Top" Width="497" Click="button_Click"/>
+		<Button x:Name="button1" Content="メッセージをQueueに挿入する" HorizontalAlignment="Left" Height="30" Margin="10,82,0,0" VerticalAlignment="Top" Width="497" Click="button1_Click"/>
+		<Button x:Name="button2" Content="メッセージをデキューする" HorizontalAlignment="Left" Height="33" Margin="10,117,0,0" VerticalAlignment="Top" Width="497" Click="button2_Click"/>
+		<Button x:Name="button3" Content="Queueの作成（同期）" HorizontalAlignment="Left" Height="34" Margin="10,194,0,0" VerticalAlignment="Top" Width="497" Click="button3_Click"/>
+		<Button x:Name="button4" Content="メッセージをQueueに挿入する（100）" HorizontalAlignment="Left" Height="32" Margin="10,233,0,0" VerticalAlignment="Top" Width="497" Click="button4_Click"/>
+
+	</Grid>
+</Window>

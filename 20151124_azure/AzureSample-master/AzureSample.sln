@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisCacheWpfApplication", "RedisCacheWpfApplication\RedisCacheWpfApplication.csproj", "{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureDataWarehouse", "AzureDataWarehouse", "{53045660-C577-4134-9289-300EA0074869}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageQueueWpfApplication", "StorageQueueWpfApplication\StorageQueueWpfApplication.csproj", "{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageTableWpfApplication", "StorageTableWpfApplication\StorageTableWpfApplication.csproj", "{E956C41D-66AA-4685-ACAE-1465EA7E297B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageBlobWpfApplication", "StorageBlobWpfApplication\StorageBlobWpfApplication.csproj", "{4F2D40CA-1DEC-4FB9-9D1C-1F391F883BE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageFileWpfApplication", "StorageFileWpfApplication\StorageFileWpfApplication.csproj", "{7215974E-6704-4F2B-B6D1-C8E01E547D32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBusWpfApplication", "ServiceBusWpfApplication\ServiceBusWpfApplication.csproj", "{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E956C41D-66AA-4685-ACAE-1465EA7E297B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E956C41D-66AA-4685-ACAE-1465EA7E297B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E956C41D-66AA-4685-ACAE-1465EA7E297B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E956C41D-66AA-4685-ACAE-1465EA7E297B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F2D40CA-1DEC-4FB9-9D1C-1F391F883BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F2D40CA-1DEC-4FB9-9D1C-1F391F883BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F2D40CA-1DEC-4FB9-9D1C-1F391F883BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F2D40CA-1DEC-4FB9-9D1C-1F391F883BE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7215974E-6704-4F2B-B6D1-C8E01E547D32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7215974E-6704-4F2B-B6D1-C8E01E547D32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7215974E-6704-4F2B-B6D1-C8E01E547D32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7215974E-6704-4F2B-B6D1-C8E01E547D32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D0AE97-28C0-4928-8CBD-CFAE1378DB5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

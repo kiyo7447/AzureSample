@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ConsoleApplicationSendAzureEvnetHubQueue.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="QueueConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Endpoint=sb://abeeventhub.servicebus.windows.net/;SharedAccessKeyName=SharePolicy;SharedAccessKey=07g78Q3p90VTcINrnjV2bbVTdeM/NpE05AUT0y2hnUM=</Value>
+    </Setting>
+    <Setting Name="QueueName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">abeeventhubqueue</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

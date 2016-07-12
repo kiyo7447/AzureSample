@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ConsoleApplicationAzureServiceBusReciveEventHub.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EventHubConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Endpoint=sb://abeeventhub.servicebus.windows.net/;SharedAccessKeyName=SharePolicy;SharedAccessKey=QGxueNplqFH+VYocUlO1e59WzT61WYVD9/BEJ4yzJcI=</Value>
+    </Setting>
+    <Setting Name="EventHubName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">abeeventhubeventhub</Value>
+    </Setting>
+    <Setting Name="StorageAccountKey" Type="System.String" Scope="User">
+      <Value Profile="(Default)">OyMOuv9OHs6LeUUG7cj1hWPJbLHYoJRUar8cOeKQz1+Lnrtz+GuLSd79A74295LY9IVPc0VbQmGrXx0ayEhQqg==</Value>
+    </Setting>
+    <Setting Name="StorageAccountName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">abestorageaccount</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

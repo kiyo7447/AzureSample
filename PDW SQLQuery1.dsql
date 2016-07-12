@@ -1,0 +1,18 @@
+﻿SELECT COUNT(*) FROM dbo.FactInternetSales;
+--2s 60398rec
+
+select top 1000 * from dbo.AggregateSales
+
+
+
+drop table test;
+
+create table test (id int primary key, name nvarchar(100));
+
+insert into test values(1,'abe');
+
+
+select * from test
+
+
+

@@ -1,0 +1,11 @@
+﻿
+ハウトゥは
+https://azure.microsoft.com/ja-jp/documentation/articles/storage-dotnet-how-to-use-queues/
+
+Nu-Getで、WindowsAzure.Storageを追加する。
+
+
+https://abestorage2.queue.core.windows.net/
+
+https://abestorage2.queue.core.windows.net/taikin
+
