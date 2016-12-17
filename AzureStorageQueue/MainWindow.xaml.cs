@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StorageQueueWpfApplication
+namespace AzureStorageQueue
 {
 	/// <summary>
 	/// MainWindow.xaml の相互作用ロジック
@@ -35,11 +35,10 @@ namespace StorageQueueWpfApplication
 		/// <param name="e"></param>
 		private void button_Click(object sender, RoutedEventArgs e)
 		{
+			//Queueを作成する
 
 			var constr = new Properties.Settings().StorageConnectionString;
 			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
-
-
 
 			// Create the queue client
 			CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
@@ -87,8 +86,14 @@ namespace StorageQueueWpfApplication
 			// Retrieve a reference to a queue
 			CloudQueue queue = queueClient.GetQueueReference("taikin");
 
+			var opt = new QueueRequestOptions();
+			//opt.
 			// Get the next message
-			CloudQueueMessage retrievedMessage = queue.GetMessage();
+
+			var oc = new OperationContext();
+			//oc.
+
+			CloudQueueMessage retrievedMessage = queue.GetMessage(options: opt);
 
 			//Queueにはデータが入っていない。
 			if (retrievedMessage == null)
