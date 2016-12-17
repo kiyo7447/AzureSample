@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RedisCacheWpfApplication.Properties {
+namespace AzureRedisCache.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -28,9 +28,9 @@ namespace RedisCacheWpfApplication.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("abecloud.redis.cache.windows.net,abortConnect=false,ssl=true,password=B8MFoVSGDH2" +
             "/YHkwV486ddCqwYK9+XQt1s40s8DHeUQ=")]
-        public string connectionString {
+        public string ConnectionString {
             get {
-                return ((string)(this["connectionString"]));
+                return ((string)(this["ConnectionString"]));
             }
         }
     }

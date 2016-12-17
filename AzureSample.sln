@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisCacheWpfApplication", "RedisCacheWpfApplication\RedisCacheWpfApplication.csproj", "{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageQueueWpfApplication", "StorageQueueWpfApplication\StorageQueueWpfApplication.csproj", "{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageFileWpfApplication", "StorageFileWpfApplication\StorageFileWpfApplication.csproj", "{7215974E-6704-4F2B-B6D1-C8E01E547D32}"
@@ -33,16 +31,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureStorageBlob(WPF)", "Az
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureCommonLibrary", "AzureCommonLibrary\AzureCommonLibrary.csproj", "{67CFD72E-6BBD-4B2B-85EB-B30FE9F03046}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureRedisCache(WPF)", "AzureRedisCache\AzureRedisCache(WPF).csproj", "{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -95,6 +91,10 @@ Global
 		{67CFD72E-6BBD-4B2B-85EB-B30FE9F03046}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67CFD72E-6BBD-4B2B-85EB-B30FE9F03046}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67CFD72E-6BBD-4B2B-85EB-B30FE9F03046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

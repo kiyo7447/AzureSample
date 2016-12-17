@@ -19,7 +19,7 @@ using StackExchange.Redis;
 //256MBのキャッシュ作成について9:55かかった。約10分です。
 
 
-namespace RedisCacheWpfApplication
+namespace AzureRedisCache
 {
 	/// <summary>
 	/// MainWindow.xaml の相互作用ロジック
@@ -82,7 +82,7 @@ namespace RedisCacheWpfApplication
 
 		private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 		{
-			var connstr = new Properties.Settings().connectionString;
+			var connstr = new Properties.Settings().ConnectionString;
 
 			return ConnectionMultiplexer.Connect(connstr);
 		});

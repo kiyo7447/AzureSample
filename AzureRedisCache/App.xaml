@@ -1,7 +1,7 @@
-﻿<Application x:Class="RedisCacheWpfApplication.App"
+﻿<Application x:Class="AzureRedisCache.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:RedisCacheWpfApplication"
+             xmlns:local="clr-namespace:AzureRedisCache"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
