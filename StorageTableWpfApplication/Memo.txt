@@ -1,11 +1,13 @@
 ﻿
 ハウトゥ
+.NET を使用して Azure Table Storage を使用する
 https://azure.microsoft.com/ja-jp/documentation/articles/storage-dotnet-how-to-use-tables/
 
+http://<storage account>.table.core.windows.net/<table> 
 
 TableEntity
 
-
+▼障害サンプル
 
 Microsoft.WindowsAzure.Storage.StorageException はハンドルされませんでした。
   HResult=-2146233088
@@ -72,3 +74,7 @@ Microsoft.WindowsAzure.Storage.StorageException はハンドルされません�
             場所 System.Net.HttpWebRequest.GetResponse()
             場所 Microsoft.WindowsAzure.Storage.Core.Executor.Executor.ExecuteSync[T](RESTCommand`1 cmd, IRetryPolicy policy, OperationContext operationContext) 場所 c:\Program Files (x86)\Jenkins\workspace\release_dotnet_master\Lib\ClassLibraryCommon\Core\Executor\Executor.cs:行 677
        InnerException: 
+
+→同一のキー（PartitionKey+RowKey）を挿入した場合のエラー
+
+

@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StorageTableWpfApplication
+namespace AzureStorageTable
 {
 	/// <summary>
 	/// MainWindow.xaml の相互作用ロジック
@@ -30,6 +30,8 @@ namespace StorageTableWpfApplication
 
 		private void button_Click(object sender, RoutedEventArgs e)
 		{
+			//テーブル作成
+
 			// Retrieve the storage account from the connection string.
 			var constr = new Properties.Settings().StorageConnectionString;
 			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
@@ -49,13 +51,22 @@ namespace StorageTableWpfApplication
 
 			task.Wait();
 
-			//処理時間=2625
+			//2015/11/27 遅い、、
+			//処理時間=2625ms
+
 			Debug.WriteLine("処理時間=" + (System.Environment.TickCount - l));
+
+			//2016/12/17土 早くなっている？
+			//処理時間=890ms
 
 		}
 
+		static int _n = 0;
 		private void button1_Click(object sender, RoutedEventArgs e)
 		{
+			//エンティティをテーブルに１件追加
+			var l = System.Environment.TickCount;
+
 			var constr = new Properties.Settings().StorageConnectionString;
 			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
 
@@ -66,9 +77,11 @@ namespace StorageTableWpfApplication
 			CloudTable table = tableClient.GetTableReference("people");
 
 			// Create a new customer entity.
-			CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
+			CustomerEntity customer1 = new CustomerEntity("Harp", "Walter" + _n);
 			customer1.Email = "Walter@contoso.com";
 			customer1.PhoneNumber = "425-555-0101";
+
+			_n++;
 
 			// Create the TableOperation object that inserts the customer entity.
 			TableOperation insertOperation = TableOperation.Insert(customer1);
@@ -76,10 +89,14 @@ namespace StorageTableWpfApplication
 			// Execute the insert operation.
 			table.Execute(insertOperation);
 
+			Debug.WriteLine($"処理時間={(System.Environment.TickCount - l)}ms");
 		}
 
 		private void button2_Click(object sender, RoutedEventArgs e)
 		{
+			//パーティション内のすべてのエンティティをを取得する
+			var l = System.Environment.TickCount;
+
 			var constr = new Properties.Settings().StorageConnectionString;
 			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
 
@@ -90,19 +107,26 @@ namespace StorageTableWpfApplication
 			CloudTable table = tableClient.GetTableReference("people");
 
 			// Construct the query operation for all customer entities where PartitionKey="Smith".
-			TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Harp"));
+			TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "kiyotaka"));
 
 			// Print the fields for each customer.
 			foreach (CustomerEntity entity in table.ExecuteQuery(query))
 			{
 				//Harp, Walter	Walter@contoso.com	425-555-0101
-				Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
+				Debug.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
 					entity.Email, entity.PhoneNumber);
 			}
+
+			//2016/12/17土
+			//処理時間=421ms
+
+			Debug.WriteLine($"処理時間={(System.Environment.TickCount - l)}ms");
 		}
 
 		private void button3_Click(object sender, RoutedEventArgs e)
 		{
+			//エンティティのバッチを挿入する
+
 			var constr = new Properties.Settings().StorageConnectionString;
 			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
 
@@ -130,9 +154,37 @@ namespace StorageTableWpfApplication
 			// Execute the batch operation.
 			table.ExecuteBatch(batchOperation);
 
+			//2015/11/27
 			//処理時間=1265ms
-			Debug.WriteLine("処理時間=" + (System.Environment.TickCount - l));
+
+			//2016/12/17土
+			//処理時間 = 313ms
+			Debug.WriteLine($"処理時間={(System.Environment.TickCount - l)}ms");
 		}
+
+		private void button4_Click(object sender, RoutedEventArgs e)
+		{
+			var constr = new Properties.Settings().StorageConnectionString;
+			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
+
+			// Create the table client.
+			CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+			//テーブルストレージから、peopleの参照を取得する
+			//tableClient.GetTableReference("people").CreateQuery<Wrok>();
+
+			//var cache = new DataCache(a);
+
+
+
+
+
+		}
+	}
+
+	public class Work
+	{
+
 	}
 
 	public class CustomerEntity : TableEntity

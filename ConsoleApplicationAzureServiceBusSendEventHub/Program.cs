@@ -51,6 +51,7 @@ namespace ConsoleApplicationSendAzureServiceBus
 				{
 					Console.ForegroundColor = ConsoleColor.Red;
 					Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.Message);
+					//Console.WriteLine("{0} > Exception: {1}", DateTime.Now, exception.ToString());
 					Console.ResetColor();
 				}
 

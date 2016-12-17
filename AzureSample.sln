@@ -5,11 +5,9 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisCacheWpfApplication", "RedisCacheWpfApplication\RedisCacheWpfApplication.csproj", "{93CEB58D-EBA1-4DD5-9E99-08ADAFA6EE7F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureDataWarehouse", "AzureDataWarehouse", "{53045660-C577-4134-9289-300EA0074869}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageQueueWpfApplication", "StorageQueueWpfApplication\StorageQueueWpfApplication.csproj", "{484A0C7A-5DD5-4D7F-94A1-A1F06DFDAB5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageTableWpfApplication", "StorageTableWpfApplication\StorageTableWpfApplication.csproj", "{E956C41D-66AA-4685-ACAE-1465EA7E297B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Storage.Table", "StorageTableWpfApplication\Azure.Storage.Table.csproj", "{E956C41D-66AA-4685-ACAE-1465EA7E297B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageBlobWpfApplication", "StorageBlobWpfApplication\StorageBlobWpfApplication.csproj", "{4F2D40CA-1DEC-4FB9-9D1C-1F391F883BE2}"
 EndProject
@@ -30,6 +28,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationAzureServiceBusSendQueue", "ConsoleApplicationAzureServiceBusSendQueue\ConsoleApplicationAzureServiceBusSendQueue.csproj", "{8FDF46DC-8C97-496C-8698-883762D7507C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplicationCreateTokenCSRF", "ConsoleApplicationCreateTokenCSRF\ConsoleApplicationCreateTokenCSRF.csproj", "{30D8F987-5633-4F5E-8C9A-84D0F3BF3FEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{EB89A6D4-A01A-4A7C-8887-1EAE8ADE3B42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
