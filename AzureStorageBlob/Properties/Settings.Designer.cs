@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StorageWpfApplication.Properties {
+namespace AzureStorageBlob.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,8 +26,8 @@ namespace StorageWpfApplication.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("DefaultEndpointsProtocol=https;AccountName=abestorage2;AccountKey=IwD5+vgsdi6x9NJ" +
-            "aKcMXlU3RrlNnhS5sMqkKPIm3qtofvJrR9eTfyPY7MRGynvYPoZLC6vq4P+5MUrp5pLWkyQ==")]
+        [global::System.Configuration.DefaultSettingValueAttribute("DefaultEndpointsProtocol=https;AccountName=abestorageaccount;AccountKey=l+2HHunyv" +
+            "uOOFnnJX9/C2j6CD/70+Hsbuj4mAnWZVJDXJv9j0SMUIyfSBlHF0N995i8PiTMZUdSKoAiYnRkWTg==")]
         public string StorageConnectionString {
             get {
                 return ((string)(this["StorageConnectionString"]));
