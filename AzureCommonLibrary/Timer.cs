@@ -15,14 +15,15 @@ namespace AzureCommonLibrary
 			_start = Environment.TickCount;
 		}
 
+		//これはデストラクタで呼び出されるが、タイミングが不規則
 		//~Timer()
 		//{
-		//	Debug.WriteLine($"1処理時間={(System.Environment.TickCount - _start)}ms");
+		//	Debug.WriteLine($"処理時間={(System.Environment.TickCount - _start)}ms");
 		//}
 
 		public void Dispose()
 		{
-			Debug.WriteLine($"2処理時間={(System.Environment.TickCount - _start)}ms");
+			Debug.WriteLine($"処理時間={(System.Environment.TickCount - _start)}ms");
 		}
 	}
 }

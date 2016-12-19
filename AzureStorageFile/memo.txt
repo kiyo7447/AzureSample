@@ -1,8 +1,6 @@
 ﻿
 
-
-
-ハウトゥ
+Windows で Azure File Storage を使用する
 https://azure.microsoft.com/ja-jp/documentation/articles/storage-dotnet-how-to-use-files/
 
 

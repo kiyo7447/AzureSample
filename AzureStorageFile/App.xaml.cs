@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace StorageFileWpfApplication
+namespace AzureStorageFile
 {
 	/// <summary>
 	/// App.xaml の相互作用ロジック
