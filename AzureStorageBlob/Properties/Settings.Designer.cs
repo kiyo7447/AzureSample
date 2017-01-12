@@ -33,5 +33,30 @@ namespace AzureStorageBlob.Properties {
                 return ((string)(this["StorageConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://abestorageaccount.blob.core.windows.net/sheardaccesssignature/MyBlob.txt")]
+        public string SASUri {
+            get {
+                return ((string)(this["SASUri"]));
+            }
+            set {
+                this["SASUri"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("?sv=2015-12-11&si=mypolicy&sr=c&sig=0w4c1UdFL%2FvPLd03%2Fyhnfiv3THAY2YwEFaD4kcGKD" +
+            "3w%3D")]
+        public string SASToken {
+            get {
+                return ((string)(this["SASToken"]));
+            }
+            set {
+                this["SASToken"] = value;
+            }
+        }
     }
 }

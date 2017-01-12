@@ -6,11 +6,26 @@
         xmlns:local="clr-namespace:AzureStorageBlob"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-		<Button x:Name="buttonCreateBlobContainer" Content="Blob Containerの作成" HorizontalAlignment="Left" Height="28" Margin="30,19,0,0" VerticalAlignment="Top" Width="438" Click="buttonCreateBlobContainer_Click"/>
-		<Button x:Name="buttonGetBlobList" Content="コンテナー内の BLOB を一覧表示する" HorizontalAlignment="Left" Height="25" Margin="30,52,0,0" VerticalAlignment="Top" Width="438" Click="buttonGetBlobList_Click"/>
-		<Button x:Name="buttonAddAppendBlob" Content="追加 Blobへの書き込み" HorizontalAlignment="Left" Height="27" Margin="30,82,0,0" VerticalAlignment="Top" Width="438" Click="buttonAddAppendBlob_Click"/>
-		<Button x:Name="buttonAddBlobLargeFile" Content="追加 Blobへの書き込み（92MBのムービー）" HorizontalAlignment="Left" Height="26" Margin="30,114,0,0" VerticalAlignment="Top" Width="438" Click="buttonAddBlobLargeFile_Click"/>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Button x:Name="buttonCreateBlobContainer" Content="Blob Containerの作成" Margin="5" Click="buttonCreateBlobContainer_Click" Grid.Row="0"/>
+		<Button x:Name="buttonGetBlobList" Content="コンテナー内の BLOB を一覧表示する" Margin="5"  Click="buttonGetBlobList_Click" Grid.Row="1"/>
+		<Button x:Name="buttonAddAppendBlob" Content="追加 Blobへの書き込み"  Margin="5"  Click="buttonAddAppendBlob_Click" Grid.Row="2"/>
+		<Button x:Name="buttonAddBlobLargeFile" Content="追加 Blobへの書き込み（92MBのムービー）"  Margin="5"  Click="buttonAddBlobLargeFile_Click" Grid.Row="3"/>
+
+		<Button x:Name="buttonCreateSAS" Content="共有アクセス署名（SAS）の作成"  Margin="5" Grid.Row="4" Click="buttonCreateSAS_Click"/>
+
+		<Button x:Name="buttonAccessSAS" Content="共有アクセス署名（SAS）の使用"  Margin="5" Grid.Row="5" Click="buttonAccessSAS_Click"/>
 
 	</Grid>
 </Window>
