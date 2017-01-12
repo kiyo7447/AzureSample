@@ -15,5 +15,11 @@
     <Setting Name="SASToken" Type="System.String" Scope="User">
       <Value Profile="(Default)">?sv=2015-12-11&amp;si=mypolicy&amp;sr=c&amp;sig=0w4c1UdFL%2FvPLd03%2Fyhnfiv3THAY2YwEFaD4kcGKD3w%3D</Value>
     </Setting>
+    <Setting Name="SASIPUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://abestorageaccount.blob.core.windows.net/sheardaccesssignatureip/MyBlobIP.txt</Value>
+    </Setting>
+    <Setting Name="SASIPToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)">?sv=2015-12-11&amp;si=mypolicyip3&amp;sr=c&amp;sig=zWhpQ9yH%2Fs8hV0bqFcyrxwlYCvuT8KHRHcvIJ9%2FSGgg%3D</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

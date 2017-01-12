@@ -303,6 +303,9 @@ namespace AzureStorageBlob
 
 		private void buttonCreateSAS_Click(object sender, RoutedEventArgs e)
 		{
+			//Shared Access Signatures (SAS) の使用
+			//https://docs.microsoft.com/ja-jp/azure/storage/storage-dotnet-shared-access-signature-part-1
+
 			//共有アクセス署名（SAS）の作成
 			using (var time = new Timer())
 			{
@@ -328,12 +331,15 @@ namespace AzureStorageBlob
 				// 共有アクセスポリシーは、コンテナへの読み取り/書き込みアクセスを10時間提供します。
 				blobPermissions.SharedAccessPolicies.Add("mypolicy", new SharedAccessBlobPolicy()
 				{
-					// SASがすぐに有効になるように、開始時刻を設定しないでください。
+					// SASがすぐに有効になるように、開始時刻を設定しない。
 					//このようにして、小さなクロックの違いによる失敗を避けることができます。
 					SharedAccessExpiryTime = DateTime.UtcNow.AddHours(10),
-					Permissions = SharedAccessBlobPermissions.Write |
-					SharedAccessBlobPermissions.Read
+					//Read, Write, List, Add, Create, Delte, None
+					Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read
 				});
+
+
+
 
 				//パブリックアクセス設定では、コンテナが非公開であるため、匿名でアクセスすることはできません。
 				blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
@@ -342,7 +348,10 @@ namespace AzureStorageBlob
 				container.SetPermissions(blobPermissions);
 
 				//ユーザーと共有する共有アクセス署名を取得します。
-				string sasToken = container.GetSharedAccessSignature(new SharedAccessBlobPolicy(), "mypolicy");
+				string sasToken = container.GetSharedAccessSignature(
+					policy: new SharedAccessBlobPolicy(),
+					groupPolicyIdentifier: "mypolicy"
+				);
 			}
 
 		}
@@ -375,6 +384,89 @@ namespace AzureStorageBlob
 				}
 			}
 			//処理時間=703ms
+		}
+
+		private void buttonCreateSASIP_Click(object sender, RoutedEventArgs e)
+		{
+			//共有アクセス署名（SAS）の作成
+			using (var time = new Timer())
+			{
+				//Blobへの接続文字列を取得
+				//efaultEndpointsProtocol=https;AccountName=hogehogestorageaccount;AccountKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+				var constr = new Properties.Settings().StorageConnectionString;
+
+				//接続文字列からストレージアカウントを取得します。
+				CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
+
+				//Blobサービスへの認証されたアクセスのためのサービスクライアントを作成します。
+				CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+				//コンテナへの参照を取得します。（大文字は使えません）
+				CloudBlobContainer container = blobClient.GetContainerReference("sheardaccesssignatureip");
+
+				//コンテナがまだ存在しない場合は作成します。
+				container.CreateIfNotExists();
+
+				////共有アクセスポリシーとパブリックアクセス設定で構成されるBLOBコンテナのアクセス許可を作成します。
+				BlobContainerPermissions blobPermissions = new BlobContainerPermissions();
+
+				// 共有アクセスポリシーは、コンテナへの読み取り/書き込みアクセスを10時間提供します。
+				blobPermissions.SharedAccessPolicies.Add("mypolicyip3", new SharedAccessBlobPolicy()
+				{
+					// SASがすぐに有効になるように、開始時刻を設定しない。
+					//このようにして、小さなクロックの違いによる失敗を避けることができます。
+					SharedAccessExpiryTime = DateTime.UtcNow.AddHours(10),
+					//Read, Write, List, Add, Create, Delte, None
+					Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read
+				});
+
+				//パブリックアクセス設定では、コンテナが非公開であるため、匿名でアクセスすることはできません。
+				blobPermissions.PublicAccess = BlobContainerPublicAccessType.Off;
+
+				//コンテナにアクセス許可ポリシーを設定します。
+				container.SetPermissions(blobPermissions);
+
+				//ユーザーと共有する共有アクセス署名を取得します。
+				string sasToken = container.GetSharedAccessSignature(
+					policy: new SharedAccessBlobPolicy(),
+					groupPolicyIdentifier: "mypolicyip3",
+					//↓ローカルIPもグローバルIPも設定したけどうまく動作しなかったはて？
+					ipAddressOrRange: new IPAddressOrRange("192.168.2.1", "192.168.2.254"),					
+					//ipAddressOrRange: new IPAddressOrRange("219.127.68.126"),
+					protocols: SharedAccessProtocol.HttpsOnly
+				);
+			}
+		}
+
+		private void buttonAccessSASIP_Click(object sender, RoutedEventArgs e)
+		{
+			using (var timer = new Timer())
+			{
+				Properties.Settings settings = new Properties.Settings();
+
+				//共有アクセス署名（SAS）の使用
+				//Uri blobUri = new Uri("https://hogehogestorageaccount.blob.core.windows.net/sheardaccesssignature/MyBlobIP.txt");
+				Uri blobUri = new Uri(settings.SASUri);
+
+				//var sasToken = "?sv=2015-12-11&si=mypolicy&sr=c&sig=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+				var sasToken = settings.SASIPToken;
+
+				// Create credentials with the SAS token. The SAS token was created in previous example.
+				StorageCredentials credentials = new StorageCredentials(sasToken);
+
+				// Create a new blob.
+				CloudBlockBlob blob = new CloudBlockBlob(blobUri, credentials);
+
+				// Upload the blob. 
+				// If the blob does not yet exist, it will be created. 
+				// If the blob does exist, its existing content will be overwritten.
+				using (var fileStream = System.IO.File.OpenRead(@".\Contents\MyBlob.txt"))
+				{
+					blob.UploadFromStream(fileStream);
+				}
+			}
+			//処理時間=703ms
+
 		}
 	}
 }

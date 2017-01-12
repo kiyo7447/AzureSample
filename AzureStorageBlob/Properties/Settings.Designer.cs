@@ -58,5 +58,31 @@ namespace AzureStorageBlob.Properties {
                 this["SASToken"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://abestorageaccount.blob.core.windows.net/sheardaccesssignatureip/MyBlobIP." +
+            "txt")]
+        public string SASIPUri {
+            get {
+                return ((string)(this["SASIPUri"]));
+            }
+            set {
+                this["SASIPUri"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("?sv=2015-12-11&si=mypolicyip3&sr=c&sig=zWhpQ9yH%2Fs8hV0bqFcyrxwlYCvuT8KHRHcvIJ9%2" +
+            "FSGgg%3D")]
+        public string SASIPToken {
+            get {
+                return ((string)(this["SASIPToken"]));
+            }
+            set {
+                this["SASIPToken"] = value;
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AzureStorageBlob"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="525">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition/>
@@ -17,15 +17,26 @@
 			<RowDefinition/>
 			<RowDefinition/>
 			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
 		</Grid.RowDefinitions>
-		<Button x:Name="buttonCreateBlobContainer" Content="Blob Containerの作成" Margin="5" Click="buttonCreateBlobContainer_Click" Grid.Row="0"/>
-		<Button x:Name="buttonGetBlobList" Content="コンテナー内の BLOB を一覧表示する" Margin="5"  Click="buttonGetBlobList_Click" Grid.Row="1"/>
-		<Button x:Name="buttonAddAppendBlob" Content="追加 Blobへの書き込み"  Margin="5"  Click="buttonAddAppendBlob_Click" Grid.Row="2"/>
-		<Button x:Name="buttonAddBlobLargeFile" Content="追加 Blobへの書き込み（92MBのムービー）"  Margin="5"  Click="buttonAddBlobLargeFile_Click" Grid.Row="3"/>
+		<Button x:Name="buttonCreateBlobContainer" Content="Blob Containerの作成" Margin="3" Click="buttonCreateBlobContainer_Click" Grid.Row="0"/>
+		<Button x:Name="buttonGetBlobList" Content="コンテナー内の BLOB を一覧表示する" Margin="3"  Click="buttonGetBlobList_Click" Grid.Row="1"/>
+		<Button x:Name="buttonAddAppendBlob" Content="追加 Blobへの書き込み"  Margin="3"  Click="buttonAddAppendBlob_Click" Grid.Row="2"/>
+		<Button x:Name="buttonAddBlobLargeFile" Content="追加 Blobへの書き込み（92MBのムービー）"  Margin="3"  Click="buttonAddBlobLargeFile_Click" Grid.Row="3"/>
 
-		<Button x:Name="buttonCreateSAS" Content="共有アクセス署名（SAS）の作成"  Margin="5" Grid.Row="4" Click="buttonCreateSAS_Click"/>
+		<Button x:Name="buttonCreateSAS" Content="共有アクセス署名（SAS）の作成"  Margin="3" Grid.Row="4" Click="buttonCreateSAS_Click"/>
 
-		<Button x:Name="buttonAccessSAS" Content="共有アクセス署名（SAS）の使用"  Margin="5" Grid.Row="5" Click="buttonAccessSAS_Click"/>
+		<Button x:Name="buttonAccessSAS" Content="共有アクセス署名（SAS）の使用"  Margin="3" Grid.Row="5" Click="buttonAccessSAS_Click"/>
+
+		<Button x:Name="buttonCreateSASIP" Content="共有アクセス署名（SAS）の作成(IP)"  Margin="3" Grid.Row="6" Click="buttonCreateSASIP_Click" />
+
+		<Button x:Name="buttonAccessSASIP" Content="共有アクセス署名（SAS）の使用(IP)"  Margin="3" Grid.Row="7" Click="buttonAccessSASIP_Click" />
+
+
 
 	</Grid>
 </Window>
