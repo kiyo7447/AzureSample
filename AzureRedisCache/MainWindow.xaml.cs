@@ -34,17 +34,16 @@ namespace AzureRedisCache
 		private void button_Click(object sender, RoutedEventArgs e)
 		{
 			var l = System.Environment.TickCount;
-			//ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-			// Connection refers to a property that returns a ConnectionMultiplexer
-			// as shown in the previous example.
+			// ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+			// Connectionは、前の例に示すようにConnectionMultiplexerを返すプロパティを参照します。
 			IDatabase cache = Connection.GetDatabase();
 
-			// Perform cache operations using the cache object...
-			// Simple put of integral data types into the cache
+			//キャッシュオブジェクトを使用してキャッシュ操作を実行する...
+			//整数型のデータ型をキャッシュに単純に置く
 			cache.StringSet("key1", "value");
 			cache.StringSet("key2", 25);
 
-			// Simple get of data types from the cache
+			// キャッシュからのデータ型の簡単な取得
 			string key1 = cache.StringGet("key1");
 
 			Console.WriteLine("key1:" + key1);

@@ -48,168 +48,232 @@ namespace AzureStorageBlob
 			InitializeComponent();
 		}
 
-		private void button_Click(object sender, RoutedEventArgs e)
+		private void buttonCreateBlobContainer_Click(object sender, RoutedEventArgs e)
 		{
 			//コンテナの作成
 			using (var s = new Timer())
 			{
-
-				//このコードは、動作しませんでした。
-				//翌日見たら、動作していました。タイムラグがあるようです。
-
+				//Blobへの接続文字列を取得
+				//efaultEndpointsProtocol=https;AccountName=hogehogestorageaccount;AccountKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 				var constr = new Properties.Settings().StorageConnectionString;
+
+				//ストレージアカウントを取得
 				CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
 
-				// Create the blob client.
+				// Blobクライアントを作成します。
 				CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-				// Retrieve a reference to a container.
+				// コンテナへの参照を取得します。
 				CloudBlobContainer container = blobClient.GetContainerReference("movies");
 
-				// Create the container if it doesn't already exist.
+				// コンテナがまだ存在しない場合は作成します。
 				container.CreateIfNotExists();
 
 				container.SetPermissions(
 					new BlobContainerPermissions
 					{
+						//Blob, Continer（コンテナ）, Off(プライベート）
 						PublicAccess = BlobContainerPublicAccessType.Blob
+						//https://acom-feature-videos-twitter-card.azurewebsites.net/ja-jp/documentation/articles/storage-manage-access-to-resources/
+
 					});
 			}
-			//2916/12/17
-			//2処理時間 = 781ms
+			//2016/12/17
+			//処理時間=781ms
+
+			//2017/1/12			新規にコンテナをつくっても変わらない。
+			//処理時間=797ms
+
 		}
 
 
-
-
-		private void button1_Click(object sender, RoutedEventArgs e)
+		private void buttonGetBlobList_Click(object sender, RoutedEventArgs e)
 		{
 			//Blobの一覧を取得する
 			using (var s = new Timer())
 			{
-
+				//Blobへの接続文字列を取得
+				//efaultEndpointsProtocol=https;AccountName=hogehogestorageaccount;AccountKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 				var constr = new Properties.Settings().StorageConnectionString;
 
-				// Retrieve storage account from connection string.
+				// 接続文字列からストレージアカウントを取得します。
 				CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
 
-				// Create the blob client.
+				// blobクライアントを作成します。
 				CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-				// Retrieve reference to a previously created container.
+				// 以前に作成したコンテナへの参照を取得します。
 				CloudBlobContainer container = blobClient.GetContainerReference("movies");
 
-				// Loop over items within the container and output the length and URI.
+				// コンテナ内の項目をループし、長さとURIを出力します。
 				foreach (IListBlobItem item in container.ListBlobs(null, false))
 				{
 					if (item.GetType() == typeof(CloudBlockBlob))
 					{
 						CloudBlockBlob blob = (CloudBlockBlob)item;
 
-						Console.WriteLine("Block blob of length {0}: {1}", blob.Properties.Length, blob.Uri);
+						Debug.WriteLine($"Block blob of length {blob.Properties.Length}: {blob.Uri}");
+
+					}
+					if (item.GetType() == typeof(CloudAppendBlob))
+					{
+						CloudAppendBlob blob = (CloudAppendBlob)item;
+
+						Debug.WriteLine($"Block blob of length {blob.Properties.Length}: {blob.Uri}");
 
 					}
 					else if (item.GetType() == typeof(CloudPageBlob))
 					{
 						CloudPageBlob pageBlob = (CloudPageBlob)item;
 
-						Console.WriteLine("Page blob of length {0}: {1}", pageBlob.Properties.Length, pageBlob.Uri);
+						Debug.WriteLine($"Page blob of length {pageBlob.Properties.Length}: {pageBlob.Uri}");
 
 					}
 					else if (item.GetType() == typeof(CloudBlobDirectory))
 					{
 						CloudBlobDirectory directory = (CloudBlobDirectory)item;
 
-						Console.WriteLine("Directory: {0}", directory.Uri);
+						Debug.WriteLine($"Directory: {directory.Uri}");
+
+						//対象のディレクトリのすべてのファイルを取得する。
+						//CloudAppendBlob、CloudBlockBlobがすべて取得される
+						var list = container.GetDirectoryReference("").ListBlobs(useFlatBlobListing: true);
+						Debug.WriteLine($"root(sub)取得件数={list.Count()}");
+						list.All(l =>
+						{
+							Debug.WriteLine($"取得={l.Uri}");
+							return true;
+						});
+
+						//階層のサブ改造までは見ない
+						//CloudBlobDirectory、CloudAppendBlob、CloudBlockBlobがすべて取得される
+						list = container.GetDirectoryReference("").ListBlobs(useFlatBlobListing: false);
+						Debug.WriteLine($"root(flat)取得件数={list.Count()}");
+						list.All(l =>
+						{
+							Debug.WriteLine($"取得={l.Uri}");
+							return true;
+						});
+
+						//対象のディレクトリのすべてのファイルを取得する。
+						//CloudAppendBlob、CloudBlockBlobがすべて取得される
+						list = container.GetDirectoryReference("abe").ListBlobs(useFlatBlobListing: true);
+						Debug.WriteLine($"abe(sub)取得件数={list.Count()}");
+						list.All(l =>
+						{
+							Debug.WriteLine($"取得={l.Uri}");
+							return true;
+						});
+
+						//階層のサブ改造までは見ない
+						//CloudBlobDirectory、CloudAppendBlob、CloudBlockBlobがすべて取得される
+						list = container.GetDirectoryReference("abe").ListBlobs(useFlatBlobListing: false);
+						Debug.WriteLine($"abe(Flat)取得件数={list.Count()}");
+						list.All(l =>
+						{
+							Debug.WriteLine($"取得={l.Uri}");
+							return true;
+						});
+					}
+					else
+					{
+						//想定外のタイプ			追加Blobは？？
+						var msg = $"想定外の型が指定された Error {item.GetType().FullName}";
+						Debug.WriteLine(msg);
+						throw new SystemException(msg);
 					}
 				}
 			}
 		}
 
-		private void button2_Click(object sender, RoutedEventArgs e)
+		private void buttonAddAppendBlob_Click(object sender, RoutedEventArgs e)
 		{
 			//Blobの追加書き込み
 			using (var timer = new Timer())
 			{
-				//Blobへの追加書き込み
 
+				//Blobへの接続文字列を取得
+				//efaultEndpointsProtocol=https;AccountName=hogehogestorageaccount;AccountKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 				var constr = new Properties.Settings().StorageConnectionString;
 
-				// Retrieve storage account from connection string.
+				//接続文字列からストレージアカウントを取得します。
 				CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
 
-				//Create service client for credentialed access to the Blob service.
+				//Blobサービスへの認証されたアクセスのためのサービスクライアントを作成します。
 				CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-				//Get a reference to a container.
+				//コンテナへの参照を取得します。
 				CloudBlobContainer container = blobClient.GetContainerReference("movies");
 
-				//Create the container if it does not already exist. 
+				//コンテナがまだ存在しない場合は作成します。
 				container.CreateIfNotExists();
 
-				//Get a reference to an append blob.
-				CloudAppendBlob appendBlob = container.GetAppendBlobReference("abe/kiyo/taka/20140510_154631.mp4");
+				//追加BLOBへの参照を取得します。
+				CloudAppendBlob appendBlob = container.GetAppendBlobReference("abe/kiyo/taka/test.log");
 
-				//Create the append blob. Note that if the blob already exists, the CreateOrReplace() method will overwrite it.
-				//You can check whether the blob exists to avoid overwriting it by using CloudAppendBlob.Exists().
+
+				//追加BLOBを作成します。ブロブがすでに存在する場合、CreateOrReplace（）メソッドはそれを上書きします。
+				// CloudAppendBlob.Exists（）を使用してBLOBが上書きされないようにBLOBが存在するかどうかを確認できます。				
 				appendBlob.CreateOrReplace();
 
 				int numBlocks = 10;
 
-				//Generate an array of random bytes.
+				//乱数の配列を生成します。
 				Random rnd = new Random();
 				byte[] bytes = new byte[numBlocks];
 				rnd.NextBytes(bytes);
 
-				//Simulate a logging operation by writing text data and byte data to the end of the append blob.
+				//テキストデータとバイトデータをappendブロブの末尾に書き込むことによって、ロギング操作をシミュレートします。
 				for (int i = 0; i < numBlocks; i++)
 				{
-					appendBlob.AppendText(String.Format("Timestamp: {0:u} \tLog Entry: {1}{2}",
-						DateTime.UtcNow, bytes[i], Environment.NewLine));
+					appendBlob.AppendText(
+						content:$"Timestamp: {DateTime.UtcNow:u} \tLog Entry: {bytes[i]}{Environment.NewLine}",
+						encoding:Encoding.GetEncoding("UTF-8")
+					);
 				}
 
-				//Read the append blob to the console window.
-				Console.WriteLine(appendBlob.DownloadText());
+				//append blobをコンソールウィンドウに読み込みます。
+				Debug.WriteLine(appendBlob.DownloadText());
 			}
 		}
 
-		private void button3_Click(object sender, RoutedEventArgs e)
+		private void buttonAddBlobLargeFile_Click(object sender, RoutedEventArgs e)
 		{
-			//Blobへの追加書き込み２０ＭＢ
-
+			//Blobへの追加書き込み９２ＭＢ
 			using (var timer = new Timer())
 			{
-
+				//Blobへの接続文字列を取得
+				//efaultEndpointsProtocol=https;AccountName=hogehogestorageaccount;AccountKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 				var constr = new Properties.Settings().StorageConnectionString;
 
-				// Retrieve storage account from connection string.
+				//接続文字列からストレージアカウントを取得します。
 				CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
 
-				//Create service client for credentialed access to the Blob service.
+				//Blobサービスへの認証されたアクセスのためのサービスクライアントを作成します。
 				CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-				//Get a reference to a container.
+				//コンテナへの参照を取得します。
 				CloudBlobContainer container = blobClient.GetContainerReference("movies");
 
-				//Create the container if it does not already exist. 
+				//コンテナがまだ存在しない場合は作成します。
 				container.CreateIfNotExists();
 
 				//Get a reference to an append blob.
-				CloudAppendBlob appendBlob = container.GetAppendBlobReference("abe/kiyo/taka/20140510_154631.mp4");
+				CloudAppendBlob appendBlob = container.GetAppendBlobReference("abe/kiyo/taka/discoverypartIIjonathanmitchellmp4.mp4");
 
-				//Create the append blob. Note that if the blob already exists, the CreateOrReplace() method will overwrite it.
-				//You can check whether the blob exists to avoid overwriting it by using CloudAppendBlob.Exists().
+				//追加BLOBを作成します。ブロブがすでに存在する場合、CreateOrReplace（）メソッドはそれを上書きします。
+				// CloudAppendBlob.Exists（）を使用してBLOBが上書きされないようにBLOBが存在するかどうかを確認できます。
 				appendBlob.CreateOrReplace();
-
 
 				//			var bytes = File.ReadAllBytes(@"O:\20140510_154631.mp4");
 
 				var l = System.Environment.TickCount;
 
-				appendBlob.AppendFromFile(@"O:\20140510_154631.mp4", FileMode.OpenOrCreate);
+				appendBlob.AppendFromFile(@".\Contents\discoverypartIIjonathanmitchellmp4.mp4", FileMode.OpenOrCreate);
 
 				//20MBのアップロードで、5.5秒
-				Console.WriteLine("処理時間：" + (System.Environment.TickCount - l));
+				//92MBのアップロードで、16.8秒
+				Debug.WriteLine("処理時間：" + (System.Environment.TickCount - l));
 
 				//int numBlocks = 10;
 
@@ -223,7 +287,10 @@ namespace AzureStorageBlob
 				////Read the append blob to the console window.
 				//Console.WriteLine(appendBlob.DownloadText());
 
+				//92MBのアップロード時間
+				//処理時間=17234ms
 			}
 		}
+
 	}
 }
