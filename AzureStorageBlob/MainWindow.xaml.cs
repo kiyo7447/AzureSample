@@ -269,7 +269,15 @@ namespace AzureStorageBlob
 
 				var l = System.Environment.TickCount;
 
-				appendBlob.AppendFromFile(@".\Contents\discoverypartIIjonathanmitchellmp4.mp4", FileMode.OpenOrCreate);
+				AccessCondition condition = new AccessCondition();
+
+				BlobRequestOptions options = new BlobRequestOptions();
+				
+				appendBlob.AppendFromFile(
+					path: @".\Contents\discoverypartIIjonathanmitchellmp4.mp4"
+					//mode: FileMode.OpenOrCreate
+					//operationContext:  FileMode.OpenOrCreate
+				);
 
 				//20MBのアップロードで、5.5秒
 				//92MBのアップロードで、16.8秒
