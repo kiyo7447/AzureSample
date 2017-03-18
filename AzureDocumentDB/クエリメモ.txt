@@ -1,0 +1,131 @@
+﻿https://docs.microsoft.com/ja-jp/azure/documentdb/documentdb-sql-query
+
+SELECT count(c) FROM c
+[
+  {
+    "$1": 6999
+  }
+]
+
+
+SELECT count(1) FROM c
+[
+  {
+    "$1": 6904
+  }
+]
+
+
+SELECT top 1 *  FROM c
+
+[
+  {
+    "id": "Andersen.1",
+    "LastName": "Andersen",
+    "Parents": [
+      {
+        "FamilyName": null,
+        "FirstName": "Thomas"
+      },
+      {
+        "FamilyName": null,
+        "FirstName": "Mary Kay"
+      }
+    ],
+    "Children": [
+      {
+        "FamilyName": null,
+        "FirstName": "Henriette Thaulow",
+        "Gender": "female",
+        "Grade": 5,
+        "Pets": [
+          {
+            "GivenName": "Fluffy"
+          }
+        ]
+      }
+    ],
+    "Address": {
+      "State": "WA",
+      "County": "King",
+      "City": "Seattle"
+    },
+    "IsRegistered": true,
+    "_rid": "s4ASAOBpAgABAAAAAAAAAA==",
+    "_self": "dbs/s4ASAA==/colls/s4ASAOBpAgA=/docs/s4ASAOBpAgABAAAAAAAAAA==/",
+    "_etag": "\"00009806-0000-0000-0000-58c0a0240000\"",
+    "_attachments": "attachments/",
+    "_ts": 1489018916
+  }
+]
+
+
+select top 100 *
+from c
+where c.id = "Wakefield.1000"
+
+[
+  {
+    "id": "Wakefield.1000",
+    "LastName": "Wakefield",
+    "Parents": [
+      {
+        "FamilyName": "Wakefield",
+        "FirstName": "Robin"
+      },
+      {
+        "FamilyName": "Miller",
+        "FirstName": "Ben"
+      }
+    ],
+    "Children": [
+      {
+        "FamilyName": "Merriam",
+        "FirstName": "Jesse",
+        "Gender": "female",
+        "Grade": 8,
+        "Pets": [
+          {
+            "GivenName": "Goofy"
+          },
+          {
+            "GivenName": "Shadow"
+          }
+        ]
+      },
+      {
+        "FamilyName": "Miller",
+        "FirstName": "Lisa",
+        "Gender": "female",
+        "Grade": 1,
+        "Pets": null
+      }
+    ],
+    "Address": {
+      "State": "NY",
+      "County": "Manhattan",
+      "City": "NY"
+    },
+    "IsRegistered": false,
+    "_rid": "s4ASAOBpAgDpAwAAAAAAAA==",
+    "_self": "dbs/s4ASAA==/colls/s4ASAOBpAgA=/docs/s4ASAOBpAgDpAwAAAAAAAA==/",
+    "_etag": "\"0000a40a-0000-0000-0000-58c0ad600000\"",
+    "_attachments": "attachments/",
+    "_ts": 1489022303
+  }
+]
+
+select {"Name":c.id, "City":c.Address.City} 
+from c
+where c.id = "Wakefield.1000"
+
+
+[
+  {
+    "$1": {
+      "Name": "Wakefield.1000",
+      "City": "NY"
+    }
+  }
+]
+

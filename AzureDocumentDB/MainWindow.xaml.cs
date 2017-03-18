@@ -34,23 +34,26 @@ namespace AzureDocumentDB
 		{
 			InitializeComponent();
 		}
-		private async Task OpenDocumentClient()
+		private DocumentClient GetDocumentClient()
 		{
 			try
 			{
 				Properties.Settings settings = new Properties.Settings();
 				this._client = new DocumentClient(new Uri(settings.EndpointUri), settings.PrimaryKey);
 				//await this._client.OpenAsync();
+				return _client;
 			}
 			catch (DocumentClientException de)
 			{
 				Exception baseException = de.GetBaseException();
 				MessageBox.Show(String.Format("{0} error occurred: {1}, Message: {2}", de.StatusCode, de.Message, baseException.Message));
+				throw;
 			}
 			catch (Exception ex)
 			{
 				Exception baseException = ex.GetBaseException();
 				MessageBox.Show(String.Format("Error: {0}, Message: {1}", ex.Message, baseException.Message));
+				throw;
 			}
 			finally
 			{
@@ -137,11 +140,11 @@ namespace AzureDocumentDB
 		}
 
 
-		private async void _buttonConnection_Click(object sender, RoutedEventArgs e)
+		private void _buttonConnection_Click(object sender, RoutedEventArgs e)
 		{
 			using (var s = new Timer())
 			{
-				await OpenDocumentClient();
+				_client =  GetDocumentClient();
 			}
 			//処理時間 813ms
 
@@ -158,6 +161,7 @@ namespace AzureDocumentDB
 
 		private async void _buttonAddJson_Click(object sender, RoutedEventArgs e)
 		{
+			if (_client == null) _client = GetDocumentClient();
 
 			Family andersenFamily = new Family
 			{
@@ -277,6 +281,8 @@ namespace AzureDocumentDB
 
 		private void _buttonDocumentDBリソースをクエリする_Click(object sender, RoutedEventArgs e)
 		{
+			if (_client == null) _client = GetDocumentClient();
+
 			// Set some common query options
 			FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
 
@@ -312,7 +318,7 @@ namespace AzureDocumentDB
 
 		private async void _buttonAddJson100000_Click(object sender, RoutedEventArgs e)
 		{
-			if (_client == null) await OpenDocumentClient();
+			if (_client == null) _client = GetDocumentClient();
 
 			using (var timer = new Timer())
 			{
@@ -366,6 +372,7 @@ namespace AzureDocumentDB
 
 		private void _buttonDocumentDBリソースをクエリする１件_10万件_Click(object sender, RoutedEventArgs e)
 		{
+			if (_client == null) _client = GetDocumentClient();
 
 		}
 	}
