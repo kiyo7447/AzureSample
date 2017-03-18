@@ -1,0 +1,32 @@
+﻿<Window x:Class="AzureDocumentDB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AzureDocumentDB"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+        <Button x:Name="_buttonConnection" Content="接続する" Margin="0" Grid.Row="1" Click="_buttonConnection_Click"/>
+        <Button x:Name="_buttonCreateDB" Content="Databaseを作成する" Margin="0" Grid.Row="2" Click="_buttonCreateDB_Click"/>
+        <Button x:Name="_buttonCreateCollection" Content="Collectionを作成する" Margin="0" Grid.Row="3" Click="_buttonCreateCollection_Click" />
+        <Button x:Name="_buttonAddJson" Content="JSONドキュメントを作成する" Margin="0" Grid.Row="4" Click="_buttonAddJson_Click" />
+		<Button x:Name="_buttonDocumentDBリソースをクエリする" Content="DBリソースをクエリする" Margin="0" Grid.Row="5" Click="_buttonDocumentDBリソースをクエリする_Click" />
+        <Button x:Name="_buttonAddJson100000" Content="JSONドキュメントを作成する（100,000件）" Margin="0" Grid.Row="6" Click="_buttonAddJson100000_Click" />
+		<Button x:Name="_buttonDocumentDBリソースをクエリする１件_10万件" Content="クエリ１件／10万件" Margin="0" Grid.Row="7" Click="_buttonDocumentDBリソースをクエリする１件_10万件_Click" />
+
+	</Grid>
+</Window>

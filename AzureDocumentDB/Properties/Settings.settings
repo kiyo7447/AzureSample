@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AzureDocumentDB.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="EndpointUri" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://abedcumentdb.documents.azure.com:443/</Value>
+    </Setting>
+    <Setting Name="PrimaryKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">jLPii2cqAKrYwel4H4EKHIjc7SOFwZpn1CntZWyo5B3Gq9CsOZb8ikxgU2GfYVYvlBkZmZ7gugXaI0Wk2Q9wsQ==</Value>
+    </Setting>
+    <Setting Name="PrimaryConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">AccountEndpoint=https://abedcumentdb.documents.azure.com:443/;AccountKey=jLPii2cqAKrYwel4H4EKHIjc7SOFwZpn1CntZWyo5B3Gq9CsOZb8ikxgU2GfYVYvlBkZmZ7gugXaI0Wk2Q9wsQ==;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

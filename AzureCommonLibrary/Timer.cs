@@ -25,5 +25,10 @@ namespace AzureCommonLibrary
 		{
 			Debug.WriteLine($"処理時間={(System.Environment.TickCount - _start)}ms");
 		}
+
+		public long GetTimePassed()
+		{
+			return (System.Environment.TickCount - _start);
+		}
 	}
 }
