@@ -9,6 +9,7 @@ namespace AzureCommonLibrary
 {
     public class Timer : IDisposable
     {
+
 		long _start;
 		public Timer()
 		{
@@ -30,5 +31,21 @@ namespace AzureCommonLibrary
 		{
 			return (System.Environment.TickCount - _start);
 		}
+
+		#region メソッド式
+
+		static Timer()
+		{
+			Start = (s, a) =>
+			{
+				var start = Environment.TickCount;
+				a();
+				Debug.WriteLine($"{s}の処理時間={(System.Environment.TickCount - start)}ms");
+			};
+		}
+
+		public static Action<string, Action> Start;
+
+		#endregion
 	}
 }

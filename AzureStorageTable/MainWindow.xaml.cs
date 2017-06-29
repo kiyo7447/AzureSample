@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.Storage;
+﻿using AzureCommonLibrary;
+using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Table;
 using System;
 using System.Collections.Generic;
@@ -30,32 +31,61 @@ namespace AzureStorageTable
 
 		private void button_Click(object sender, RoutedEventArgs e)
 		{
-			//テーブル作成
+			Timer.Start("テーブルの作成", () =>
+			{
+				//テーブル作成
 
-			// Retrieve the storage account from the connection string.
-			var constr = new Properties.Settings().StorageConnectionString;
-			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
+				// Retrieve the storage account from the connection string.
+				//var constr = new Properties.Settings().StorageConnectionString;
+				//CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
+				CloudStorageAccount storageAccount = CloudStorageAccount.Parse(SettingsInfo.AzureStorageConnectionString);
 
-			// Create the table client.
-			CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+				// Create the table client.
+				CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-			// Create the table if it doesn't exist.
-			CloudTable table = tableClient.GetTableReference("people");
+				// Create the table if it doesn't exist.
+				CloudTable table = tableClient.GetTableReference("people");
 
-			//同期処理へ変更
-			//table.CreateIfNotExists();
+				//同期処理へ変更
+				//table.CreateIfNotExists();
 
-			var l = System.Environment.TickCount;
-			
-			var task = table.CreateIfNotExistsAsync();
+				var task = table.CreateIfNotExistsAsync();
 
-			task.Wait();
+				task.Wait();
 
-			//2015/11/27 遅い、、
-			//処理時間=2625ms
+				//2015/11/27 遅い、、
+				//処理時間=2625ms
+			});
 
-			Debug.WriteLine("処理時間=" + (System.Environment.TickCount - l));
+			using (new Timer())
+			{
+				//テーブル作成
 
+				// Retrieve the storage account from the connection string.
+				//var constr = new Properties.Settings().StorageConnectionString;
+				//CloudStorageAccount storageAccount = CloudStorageAccount.Parse(constr);
+				CloudStorageAccount storageAccount = CloudStorageAccount.Parse(SettingsInfo.AzureStorageConnectionString);
+
+				// Create the table client.
+				CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+
+				// Create the table if it doesn't exist.
+				CloudTable table = tableClient.GetTableReference("people");
+
+				//同期処理へ変更
+				//table.CreateIfNotExists();
+
+				var l = System.Environment.TickCount;
+
+				var task = table.CreateIfNotExistsAsync();
+
+				task.Wait();
+
+				//2015/11/27 遅い、、
+				//処理時間=2625ms
+
+				Debug.WriteLine("処理時間=" + (System.Environment.TickCount - l));
+			}
 			//2016/12/17土 早くなっている？
 			//処理時間=890ms
 
@@ -141,7 +171,7 @@ namespace AzureStorageTable
 
 			var l = System.Environment.TickCount;
 
-			for(var c = 0; c < 100; c++)
+			for (var c = 0; c < 100; c++)
 			{
 				// Create a customer entity and add it to the table.
 				CustomerEntity customer = new CustomerEntity("kiyotaka", "abe" + c);

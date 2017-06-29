@@ -127,6 +127,12 @@
   <ItemGroup>
     <Resource Include="Memo.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AzureCommonLibrary\AzureCommonLibrary.csproj">
+      <Project>{67cfd72e-6bbd-4b2b-85eb-b30fe9f03046}</Project>
+      <Name>AzureCommonLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
